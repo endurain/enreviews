@@ -15,9 +15,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-add_action('wp_enqueue_scripts','test_init');
+add_action('wp_enqueue_scripts','pull_reviews');
 
-function test_init() {
+function pull_reviews() {
     wp_enqueue_script( 'init.php', plugins_url( './init.php', __FILE__ ));
 }
 ?>
