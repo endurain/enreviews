@@ -1,7 +1,7 @@
 
 
 <?php
-// have this file run as a cron job ask kinsta, and we specify interval
+
 // $url = 'https://jsonplaceholder.typicode.com/users'; // testing url
 // $data = file_get_contents($url); // put the contents of the file into a variable
 //

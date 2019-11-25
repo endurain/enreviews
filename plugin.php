@@ -15,11 +15,14 @@
  	exit;
  }
 
+
+
 ////////////////////////////////////////////////////////////////////////////
 // Setup Cron
 ////////////////////////////////////////////////////////////////////////////
 
 add_action('wp', 'myplugin_schedule_cron');
+
 function myplugin_schedule_cron() {
   if ( !wp_next_scheduled( 'myplugin_cron' ) )
     wp_schedule_event(time(), 'customTime', 'myplugin_cron');
@@ -29,20 +32,22 @@ function myplugin_schedule_cron() {
 // Cron Function
 ////////////////////////////////////////////////////////////////////////////
 
-// the CRON hook for firing function
+// the custom CRON hook for firing function
 add_action('myplugin_cron', 'myplugin_cron_function');
-// add_action('wp_head', 'myplugin_cron_function'); //test on page load
+// // add_action('wp_head', 'myplugin_cron_function'); //test on page load
 
-// the actual function
 function myplugin_cron_function() {
-    // see if fires via email notification
-    // wp_mail('zacharyjsanders@gmail.com','Cron Worked', date('r'));
-    $url = 'https://jsonplaceholder.typicode.com/users'; // testing url
-    $data = file_get_contents($url); // put the contents of the file into a variable
+   //how I verfied function executes correctly via the following two actions
+   echo '<h3>Recent Posts!!!!</h3>';//input this html into /index.php template
+   // // see if fires via email notification
+   // wp_mail('zacharyjsanders@gmail.com','Cron Worked', date('r'));//send me an email every 30s, which it does
 
+   $url = 'https://jsonplaceholder.typicode.com/users'; // testing url
+   $data = file_get_contents($url); // put the contents of the file into a variable
+   file_put_contents('/test.json', json_encode($data)); // write json to test.js
 
-    file_put_contents('test.json', json_encode($data)); // write json to test.js
-}
+ }
+add_filter ( 'use_in_index', 'myplugin_cron_function' );
 
 ////////////////////////////////////////////////////////////////////////////
 // CUSTOM TIME INTERVAL FOR CRON
@@ -67,8 +72,5 @@ function myplugin_cron_add_intervals( $schedules ) {
     $timestamp = wp_next_scheduled( 'myplugin_cron' );
     wp_unschedule_event($timestamp, 'myplugin_cron' );
  }
-
-
-
 
 ?>
