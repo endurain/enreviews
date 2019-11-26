@@ -44,9 +44,12 @@ function myplugin_cron_function() {
 
    $url = 'https://jsonplaceholder.typicode.com/users'; // testing url
    $data = file_get_contents($url); // put the contents of the file into a variable
-   file_put_contents('/test.json', json_encode($data)); // write json to test.js
+   $file = __FILE__ . 'latest.json';
+
+   file_put_contents($file, $data); // write json
 
  }
+ // testing function for echo on 41
 add_filter ( 'use_in_index', 'myplugin_cron_function' );
 
 ////////////////////////////////////////////////////////////////////////////
@@ -54,6 +57,7 @@ add_filter ( 'use_in_index', 'myplugin_cron_function' );
 ////////////////////////////////////////////////////////////////////////////
 
 add_filter('cron_schedules', 'myplugin_cron_add_intervals');
+
 function myplugin_cron_add_intervals( $schedules ) {
   $schedules['customTime'] = array(
     'interval' => 30,
