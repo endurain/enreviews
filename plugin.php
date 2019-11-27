@@ -34,23 +34,17 @@ function myplugin_schedule_cron() {
 
 // the custom CRON hook for firing function
 add_action('myplugin_cron', 'myplugin_cron_function');
-// // add_action('wp_head', 'myplugin_cron_function'); //test on page load
 
 function myplugin_cron_function() {
-   //how I verfied function executes correctly via the following two actions
-   echo '<h3>Recent Posts!!!!</h3>';//input this html into /index.php template
-   // // see if fires via email notification
+
    // wp_mail('zacharyjsanders@gmail.com','Cron Worked', date('r'));//send me an email every 30s, which it does
+ $url = 'https://jsonplaceholder.typicode.com/users'; // testing url
+ $data = file_get_contents($url); // put the contents of the file into a variable
+ $file = __DIR__ . '/latest.json'; //tell server where to write file to and what to call it
 
-   $url = 'https://jsonplaceholder.typicode.com/users'; // testing url
-   $data = file_get_contents($url); // put the contents of the file into a variable
-   $file = __FILE__ . 'latest.json';
-
-   file_put_contents($file, $data); // write json
+ file_put_contents($file, $data); // write json to plugin root
 
  }
- // testing function for echo on 41
-add_filter ( 'use_in_index', 'myplugin_cron_function' );
 
 ////////////////////////////////////////////////////////////////////////////
 // CUSTOM TIME INTERVAL FOR CRON
@@ -75,6 +69,7 @@ function myplugin_cron_add_intervals( $schedules ) {
  function myplugin_cron_deactivate() {
     $timestamp = wp_next_scheduled( 'myplugin_cron' );
     wp_unschedule_event($timestamp, 'myplugin_cron' );
+
  }
 
 ?>
