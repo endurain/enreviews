@@ -82,8 +82,53 @@ function en_reviews_cgb_block_assets() { // phpcs:ignore
 			'editor_script' => 'en_reviews-cgb-block-js',
 			// Enqueue blocks.editor.build.css in the editor only.
 			'editor_style'  => 'en_reviews-cgb-block-editor-css',
+
+			'render_callback' => 'render_dynamic_block',
 		)
 	);
+
+	function render_dynamic_block($attributes) {
+
+		// Parse attributes
+	  $reviews_title = $attributes['title'];
+	  $reviews_content = $attributes['review'];
+	  $reviews_author = $attributes['author'];
+		//grab
+		$jsonreviews = plugin_dir_path( __DIR__ ) . './latest.json';
+		$reviews2var = file_get_contents($jsonreviews);
+		$reviews = json_decode($reviews2var);
+  	// ob_start(); // Turn on output buffering
+
+		  /* BEGIN HTML OUTPUT */
+		?>
+
+
+		<div class="reviews-container">
+
+			<?php echo $reviews[0]->title; ?>
+
+			<?php foreach ($reviews as $review) {
+				echo $review->title . '<li>';
+			}
+			?>
+			<!-- <h3><?php echo $reviews_title ?></h3>
+			<p><?php echo $reviews_content ?></p>
+			<p><?php echo $reviews_author ?></p> -->
+		</div>
+
+		<!-- <pre>
+		<?php print_r($attributes); ?>
+		</pre>
+
+		<?php
+		  /* END HTML OUTPUT */
+
+		  $output = ob_get_contents(); // collect output
+		  ob_end_clean(); // Turn off ouput buffer
+
+		  return $output; // Print output -->
+		}
+
 }
 
 // Hook: Block assets.

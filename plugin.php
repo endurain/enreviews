@@ -10,7 +10,7 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
  */
 
- // Exit if accessed directly for security.
+ // Exit if accessed directly.
  if ( ! defined( 'ABSPATH' ) ) {
  	exit;
  }
@@ -36,7 +36,7 @@ add_action('myplugin_cron', 'myplugin_cron_function');
 function myplugin_cron_function() {
 
    // wp_mail('zacharyjsanders@gmail.com','Cron Worked', date('r'));//send me an email every 30s, which it does
- $url = 'https://jsonplaceholder.typicode.com/users'; // testing url
+ $url = 'https://jsonplaceholder.typicode.com/posts'; // testing url
  $data = file_get_contents($url); // put the contents of the file into a variable
  $file = __DIR__ . '/latest.json'; //tell server where to write file to and what to call it
 
@@ -45,7 +45,7 @@ function myplugin_cron_function() {
  }
 
 ////////////////////////////////////////////////////////////////////////////
-// CUSTOM TIME INTERVAL FOR CRON
+// Custom time interval for cron
 ////////////////////////////////////////////////////////////////////////////
 
 add_filter('cron_schedules', 'myplugin_cron_add_intervals');
@@ -63,7 +63,6 @@ function myplugin_cron_add_intervals( $schedules ) {
 ////////////////////////////////////////////////////////////////////////////
 
 require_once plugin_dir_path( __FILE__ ) . 'src/init.php';
-
 
 ////////////////////////////////////////////////////////////////////////////
 // Deactivate Cron
