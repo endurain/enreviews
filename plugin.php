@@ -15,6 +15,7 @@
  	exit;
  }
 
+ include_once "api-request.php";
 ////////////////////////////////////////////////////////////////////////////
 // Setup Cron
 ////////////////////////////////////////////////////////////////////////////
@@ -33,16 +34,18 @@ function myplugin_schedule_cron() {
 // create custom CRON hook for firing function
 add_action('myplugin_cron', 'myplugin_cron_function');
 
+
 function myplugin_cron_function() {
 
-   // wp_mail('zacharyjsanders@gmail.com','Cron Worked', date('r'));//send me an email every 30s, which it does
- $url = 'https://jsonplaceholder.typicode.com/posts'; // testing url
- $data = file_get_contents($url); // put the contents of the file into a variable
+ $data = api_request();
+ // $data = file_get_contents($url); // put the contents of the file into a variable
  $file = __DIR__ . '/latest.json'; //tell server where to write file to and what to call it
 
  file_put_contents($file, $data); // write json to plugin root
 
  }
+
+ // myplugin_cron_function();
 
 ////////////////////////////////////////////////////////////////////////////
 // Custom time interval for cron
@@ -76,4 +79,21 @@ require_once plugin_dir_path( __FILE__ ) . 'src/init.php';
 
  }
 
-?>
+// include plugin_dir_path( __FILE__ ) . 'api-request.php';
+
+add_action('acf/init', 'my_acf_op_init');
+function my_acf_op_init() {
+
+    // Check function exists.
+    if( function_exists('acf_add_options_page') ) {
+
+        // Register options page.
+        $option_page = acf_add_options_page(array(
+            'page_title'    => __('Wit GA Reviews'),
+            'menu_title'    => __('Wit GA Reviews'),
+            'menu_slug'     => 'wit-ga-reviews',
+            'capability'    => 'edit_posts',
+            'redirect'      => false
+        ));
+    }
+}

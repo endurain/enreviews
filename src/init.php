@@ -64,6 +64,19 @@ function en_reviews_cgb_block_assets() { // phpcs:ignore
 		]
 	);
 
+
+// temp script include
+// Register block editor script for backend.
+
+function Zumper_widget_enqueue_script() {
+    wp_enqueue_script( 'my_custom_script', plugin_dir_url( __FILE__ ) . '../frontend.js', array('jquery'), '1.0' );
+}
+add_action('wp_enqueue_scripts', 'Zumper_widget_enqueue_script');
+
+
+
+
+
 	/**
 	 * Register Gutenberg block on server-side.
 	 *
@@ -82,7 +95,7 @@ function en_reviews_cgb_block_assets() { // phpcs:ignore
 			'editor_script' => 'en_reviews-cgb-block-js',
 			// Enqueue blocks.editor.build.css in the editor only.
 			'editor_style'  => 'en_reviews-cgb-block-editor-css',
-
+			// Enable our render_dynamic_block fucntion
 			'render_callback' => 'render_dynamic_block',
 		)
 	);
@@ -90,46 +103,54 @@ function en_reviews_cgb_block_assets() { // phpcs:ignore
 	function render_dynamic_block($attributes) {
 
 		// Parse attributes
-	  $reviews_title = $attributes['title'];
-	  $reviews_content = $attributes['review'];
-	  $reviews_author = $attributes['author'];
-		//grab
+	  // $reviews_title = $attributes['title'];
+	  // $reviews_content = $attributes['review'];
+	  // $reviews_author = $attributes['author'];
+
+		//grab the json from plugin root
 		$jsonreviews = plugin_dir_path( __DIR__ ) . './latest.json';
 		$reviews2var = file_get_contents($jsonreviews);
-		$reviews = json_decode($reviews2var);
-  	// ob_start(); // Turn on output buffering
+		$reviews = json_decode($reviews2var, true);
 
-		  /* BEGIN HTML OUTPUT */
-		?>
+		?><!-- Slider main container -->
+		<div class="swiper-container">
+			<!-- Additional required wrapper -->
+			<div class="swiper-wrapper">
+				<?php
+					$counter = 1;
+				 foreach ($reviews as $review) :
 
+					 if ($counter > 5)  {
+						 //do nothing
+					 } else {
+						 ?>
 
-		<div class="reviews-container">
+<!-- put in conditional that checks for "starRating"=  "FIVE", -->
+			        <div class="swiper-slide">
+								<?php	echo $counter;
+								$counter++;
+								echo $counter; ?>
 
-			<?php echo $reviews[0]->title; ?>
+			            <h3><?php echo $review[0]['comment'] ; ?></h3>
+			            <p><?php echo $review[0]['reviewer']['displayName']; ?></p>
 
-			<?php foreach ($reviews as $review) {
-				echo $review->title . '<li>';
-			}
-			?>
-			<!-- <h3><?php echo $reviews_title ?></h3>
-			<p><?php echo $reviews_content ?></p>
-			<p><?php echo $reviews_author ?></p> -->
+			        </div>
+						<?php }
+
+				endforeach; ?>
+				<div class="swiper-pagination"></div>
+
+				<div class="swiper-button-prev"></div>
+    		<div class="swiper-button-next"></div>
+
+			</div>
+
 		</div>
 
-		<!-- <pre>
-		<?php print_r($attributes); ?>
-		</pre>
+	<?php } ?>
+<?php } ?>
 
-		<?php
-		  /* END HTML OUTPUT */
 
-		  $output = ob_get_contents(); // collect output
-		  ob_end_clean(); // Turn off ouput buffer
-
-		  return $output; // Print output -->
-		}
-
-}
-
+<?php
 // Hook: Block assets.
 add_action( 'init', 'en_reviews_cgb_block_assets' );
