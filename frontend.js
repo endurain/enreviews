@@ -1,8 +1,13 @@
 console.log('i am working');
+
+
 var mySwiper = new Swiper ('.swiper-container', {
     // Optional parameters
-    direction: 'vertical',
+    direction: 'horizontal',
     loop: true,
+    autoplay: 3000,
+    autoplayDisableOnInteraction: false,
+    grabCursor: true,
 
     // If we need pagination
     pagination: {
@@ -15,8 +20,5 @@ var mySwiper = new Swiper ('.swiper-container', {
       prevEl: '.swiper-button-prev',
     },
 
-    // And if we need scrollbar
-    scrollbar: {
-      el: '.swiper-scrollbar',
-    },
+
   })

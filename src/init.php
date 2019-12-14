@@ -64,17 +64,12 @@ function en_reviews_cgb_block_assets() { // phpcs:ignore
 		]
 	);
 
-
-// temp script include
-// Register block editor script for backend.
-
-function Zumper_widget_enqueue_script() {
-    wp_enqueue_script( 'my_custom_script', plugin_dir_url( __FILE__ ) . '../frontend.js', array('jquery'), '1.0' );
+//initaize swiper js in footer
+function initialize_swiper() {
+    wp_enqueue_script( 'my_custom_script',
+			plugin_dir_url( __FILE__ ) . '../frontend.js');
 }
-add_action('wp_enqueue_scripts', 'Zumper_widget_enqueue_script');
-
-
-
+add_action('wp_footer', 'initialize_swiper');
 
 
 	/**
@@ -102,12 +97,7 @@ add_action('wp_enqueue_scripts', 'Zumper_widget_enqueue_script');
 
 	function render_dynamic_block($attributes) {
 
-		// Parse attributes
-	  // $reviews_title = $attributes['title'];
-	  // $reviews_content = $attributes['review'];
-	  // $reviews_author = $attributes['author'];
-
-		//grab the json from plugin root
+		//grab json from plugin root
 		$jsonreviews = plugin_dir_path( __DIR__ ) . './latest.json';
 		$reviews2var = file_get_contents($jsonreviews);
 		$reviews = json_decode($reviews2var, true);
@@ -117,34 +107,32 @@ add_action('wp_enqueue_scripts', 'Zumper_widget_enqueue_script');
 			<!-- Additional required wrapper -->
 			<div class="swiper-wrapper">
 				<?php
-					$counter = 1;
-				 foreach ($reviews as $review) :
+				 $counter = 1;
+				 foreach ($reviews['reviews'] as $review) :
 
-					 if ($counter > 5)  {
+					 if ($counter > 10)  {
 						 //do nothing
 					 } else {
 						 ?>
-
 <!-- put in conditional that checks for "starRating"=  "FIVE", -->
 			        <div class="swiper-slide">
-								<?php	echo $counter;
-								$counter++;
-								echo $counter; ?>
 
-			            <h3><?php echo $review[0]['comment'] ; ?></h3>
-			            <p><?php echo $review[0]['reviewer']['displayName']; ?></p>
+								<?php	echo $counter;
+									$counter++;
+							 	?>
+
+			            <h3><?php echo $review['comment']; ?></h3>
+			            <p><?php echo $review['reviewer']['displayName']; ?></p>
 
 			        </div>
 						<?php }
 
-				endforeach; ?>
-				<div class="swiper-pagination"></div>
-
-				<div class="swiper-button-prev"></div>
-    		<div class="swiper-button-next"></div>
+					endforeach; ?>
 
 			</div>
-
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-pagination"></div>
 		</div>
 
 	<?php } ?>

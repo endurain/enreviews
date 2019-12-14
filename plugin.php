@@ -35,15 +35,15 @@ function myplugin_schedule_cron() {
 add_action('myplugin_cron', 'myplugin_cron_function');
 
 
-function myplugin_cron_function() {
-
- $data = api_request();
- // $data = file_get_contents($url); // put the contents of the file into a variable
- $file = __DIR__ . '/latest.json'; //tell server where to write file to and what to call it
-
- file_put_contents($file, $data); // write json to plugin root
-
- }
+// function myplugin_cron_function() {
+//
+//  $data = api_request();
+//  // $data = file_get_contents($url); // put the contents of the file into a variable
+//  $file = __DIR__ . '/latest.json'; //tell server where to write file to and what to call it
+//
+//  file_put_contents($file, $data); // write json to plugin root
+//
+//  }
 
  // myplugin_cron_function();
 
