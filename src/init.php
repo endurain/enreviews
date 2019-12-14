@@ -3,9 +3,6 @@
  * Blocks Initializer
  *
  * Enqueue CSS/JS of all the blocks.
- *
- * @since   1.0.0
- * @package CGB
  */
 
 // Exit if accessed directly.
@@ -13,20 +10,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * Enqueue Gutenberg block assets for both frontend + backend.
- *
- * Assets enqueued:
- * 1. blocks.style.build.css - Frontend + Backend.
- * 2. blocks.build.js - Backend.
- * 3. blocks.editor.build.css - Backend.
- *
- * @uses {wp-blocks} for block type registration & related functions.
- * @uses {wp-element} for WP Element abstraction — structure of blocks.
- * @uses {wp-i18n} to internationalize the block's text.
- * @uses {wp-editor} for WP editor styles.
- * @since 1.0.0
- */
+ ////////////////////////////////////////////////////////////////////////////
+ // Enqueue Gutenberg block assets for both frontend + backend.
+ ////////////////////////////////////////////////////////////////////////////
 function en_reviews_cgb_block_assets() { // phpcs:ignore
 	// Register block styles for both frontend + backend.
 	wp_register_style(
@@ -64,24 +50,19 @@ function en_reviews_cgb_block_assets() { // phpcs:ignore
 		]
 	);
 
-//initaize swiper js in footer
-function initialize_swiper() {
-    wp_enqueue_script( 'my_custom_script',
+	//initaize swiper js in footer
+	function initialize_swiper() {
+	    wp_enqueue_script( 'my_custom_script',
 			plugin_dir_url( __FILE__ ) . '../frontend.js');
-}
-add_action('wp_footer', 'initialize_swiper');
+	}
+	add_action('wp_footer', 'initialize_swiper');
 
 
-	/**
-	 * Register Gutenberg block on server-side.
-	 *
-	 * Register the block on server-side to ensure that the block
-	 * scripts and styles for both frontend and backend are
-	 * enqueued when the editor loads.
-	 *
-	 * @link https://wordpress.org/gutenberg/handbook/blocks/writing-your-first-block-type#enqueuing-block-scripts
-	 * @since 1.16.0
-	 */
+ ////////////////////////////////////////////////////////////////////////////
+ // Register Gutenberg blocks server-side.
+ ////////////////////////////////////////////////////////////////////////////
+
+	// register review slider block
 	register_block_type(
 		'cgb/block-en-reviews', array(
 			// Enqueue blocks.style.build.css on both frontend & backend.
@@ -94,7 +75,25 @@ add_action('wp_footer', 'initialize_swiper');
 			'render_callback' => 'render_dynamic_block',
 		)
 	);
+	// register review list block
+	register_block_type(
+		'cgb/block-en-reviews-list', array(
+			// Enqueue blocks.style.build.css on both frontend & backend.
+			'style'         => 'en_reviews-cgb-style-css',
+			// Enqueue blocks.build.js in the editor only.
+			'editor_script' => 'en_reviews-cgb-block-js',
+			// Enqueue blocks.editor.build.css in the editor only.
+			'editor_style'  => 'en_reviews-cgb-block-editor-css',
+			// Enable our render_dynamic_block fucntion
+			'render_callback' => 'render_dynamic_list_block',
+		)
+	);
 
+	////////////////////////////////////////////////////////////////////////////
+	// Dynamic block functions
+	////////////////////////////////////////////////////////////////////////////
+
+	//dynamic review slider block
 	function render_dynamic_block($attributes) {
 
 		//grab json from plugin root
@@ -102,7 +101,8 @@ add_action('wp_footer', 'initialize_swiper');
 		$reviews2var = file_get_contents($jsonreviews);
 		$reviews = json_decode($reviews2var, true);
 
-		?><!-- Slider main container -->
+		?>
+		<!-- Slider main container -->
 		<div class="swiper-container">
 			<!-- Additional required wrapper -->
 			<div class="swiper-wrapper">
@@ -110,16 +110,14 @@ add_action('wp_footer', 'initialize_swiper');
 				 $counter = 1;
 				 foreach ($reviews['reviews'] as $review) :
 
-					 if ($counter > 10)  {
+					 if ($counter > 5)  {
 						 //do nothing
 					 } else {
 						 ?>
 <!-- put in conditional that checks for "starRating"=  "FIVE", -->
 			        <div class="swiper-slide">
 
-								<?php	echo $counter;
-									$counter++;
-							 	?>
+								<?php	$counter++;	?>
 
 			            <h3><?php echo $review['comment']; ?></h3>
 			            <p><?php echo $review['reviewer']['displayName']; ?></p>
@@ -134,6 +132,42 @@ add_action('wp_footer', 'initialize_swiper');
 			<div class="swiper-button-next"></div>
 			<div class="swiper-pagination"></div>
 		</div>
+
+	<?php }
+
+	//dynamic review list block
+	function render_dynamic_list_block($attributes) {
+		//grab json from plugin root
+		$jsonreviews = plugin_dir_path( __DIR__ ) . './latest.json';
+		$reviews2var = file_get_contents($jsonreviews);
+		$reviews = json_decode($reviews2var, true);
+
+		?>
+
+		<div class="list-wrapper">
+			<?php
+			 $counter = 1;
+			 foreach ($reviews['reviews'] as $review) :
+
+				 if ($counter > 10)  {
+					 //do nothing
+				 } else {
+			?>
+<!-- put in conditional that checks for "starRating"=  "FIVE", -->
+						<div class="">
+
+							<?php $counter++;?>
+
+								<h3><?php echo $review['comment'];?></h3>
+								<p><?php echo $review['reviewer']['displayName']; ?></p>
+
+						</div>
+					<?php }
+
+				endforeach; ?>
+
+		</div>
+
 
 	<?php } ?>
 <?php } ?>

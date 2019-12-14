@@ -23,3 +23,5 @@
 //  for testing:
 //    var_dump($decoded);
 ?>
+
+I figured out the api from here https://stackoverflow.com/questions/41034279/how-to-get-all-google-reviews-using-business-api?rq=1
