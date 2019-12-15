@@ -1,21 +1,13 @@
 /**
- * #.# Styles
- *
- * CSS for both Frontend+Backend.
+ * CSS for Frontend+Backend of List Reviews Block.
  */
 
-
-
-.wp-block-cgb-block-en-reviews  {
-  background: $red;
-  border: 0.2rem solid $black;
-  color: $black;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem;
-}
-
-.swiper-container {
-    width: 600px;
-    height: 375px;
-}
+ .list-container {
+     .list-wrapper {
+       .list-item {
+         .slider-review-text, .slider-review-auth {
+           text-align: center;
+         }
+       }
+     }
+ }

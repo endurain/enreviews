@@ -1,9 +1,10 @@
 /**
- * #.# Common SCSS
- *
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.en-five-stars {
+  margin: 0 auto; }
+
 /**
  * #.# Editor Styles
  *
@@ -18,11 +19,12 @@
   max-width: 740px;
   padding: 2rem; }
 /**
- * #.# Common SCSS
- *
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.en-five-stars {
+  margin: 0 auto; }
+
 /**
  * #.# Editor Styles
  *

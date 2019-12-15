@@ -1,44 +1,44 @@
 /**
- * #.# Common SCSS
- *
  * Can include things like variables and mixins
  * that are used across the project.
 */
-/**
- * #.# Styles
- *
- * CSS for both Frontend+Backend.
- */
-.wp-block-cgb-block-en-reviews {
-  background: orangered;
-  border: 0.2rem solid #292929;
-  color: #292929;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem; }
+.en-five-stars {
+  margin: 0 auto; }
 
-.swiper-container {
+/**
+ * CSS for Frontend+Backend of Swipe Reviews Block.
+ */
+.review-container {
   width: 600px;
   height: 375px; }
+  .review-container .review-wrapper .review-slide .slider-review-text {
+    text-align: center;
+    font-size: 20px; }
+  .review-container .review-wrapper .review-slide .slider-review-auth {
+    text-align: center;
+    font-size: 15px;
+    font-style: italic; }
+
+.swiper-button-next:focus,
+.swiper-button-prev:focus {
+  outline: none; }
+
+.swiper-button-prev {
+  left: -10px;
+  top: 84%; }
+
+.swiper-button-next {
+  right: -10px;
+  top: 84%; }
 /**
- * #.# Common SCSS
- *
  * Can include things like variables and mixins
  * that are used across the project.
 */
-/**
- * #.# Styles
- *
- * CSS for both Frontend+Backend.
- */
-.wp-block-cgb-block-en-reviews {
-  background: orangered;
-  border: 0.2rem solid #292929;
-  color: #292929;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem; }
+.en-five-stars {
+  margin: 0 auto; }
 
-.swiper-container {
-  width: 600px;
-  height: 375px; }
+/**
+ * CSS for Frontend+Backend of List Reviews Block.
+ */
+.list-container .list-wrapper .list-item .slider-review-text, .list-container .list-wrapper .list-item .slider-review-auth {
+  text-align: center; }

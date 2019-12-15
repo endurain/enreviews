@@ -53,7 +53,7 @@ function en_reviews_cgb_block_assets() { // phpcs:ignore
 	//initaize swiper js in footer
 	function initialize_swiper() {
 	    wp_enqueue_script( 'my_custom_script',
-			plugin_dir_url( __FILE__ ) . '../frontend.js');
+			plugin_dir_url( __FILE__ ) . '../swiper/frontend.js');
 	}
 	add_action('wp_footer', 'initialize_swiper');
 
@@ -102,36 +102,35 @@ function en_reviews_cgb_block_assets() { // phpcs:ignore
 		$reviews = json_decode($reviews2var, true);
 
 		?>
-		<!-- Slider main container -->
-		<div class="swiper-container">
-			<!-- Additional required wrapper -->
-			<div class="swiper-wrapper">
+		<div class="swiper-container review-container">
+			<div class="swiper-wrapper review-wrapper">
 				<?php
 				 $counter = 1;
 				 foreach ($reviews['reviews'] as $review) :
-
 					 if ($counter > 5)  {
 						 //do nothing
 					 } else {
 						 ?>
-<!-- put in conditional that checks for "starRating"=  "FIVE", -->
-			        <div class="swiper-slide">
-
+						 <!-- put in conditional that checks for "starRating"=  "FIVE", -->
+			        <div class="swiper-slide review-slide">
+								<img
+									src="<?php echo plugin_dir_url( __FILE__ ) . './img/fivestars.svg'; ?>"
+									alt="5 Stars"
+									Class="en-five-stars"
+								/>
 								<?php	$counter++;	?>
-
-			            <h3><?php echo $review['comment']; ?></h3>
-			            <p><?php echo $review['reviewer']['displayName']; ?></p>
-
+			            <h3 class="slider-review-text"><?php echo $review['comment']; ?></h3>
+			            <p class="slider-review-auth">
+										-<?php echo $review['reviewer']['displayName']; ?>, Google Review
+									</p>
 			        </div>
 						<?php }
-
 					endforeach; ?>
-
-			</div>
-			<div class="swiper-button-prev"></div>
-			<div class="swiper-button-next"></div>
+			</div><!-- end swiper-wrapper -->
 			<div class="swiper-pagination"></div>
-		</div>
+		</div><!-- end swiper-container -->
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
 
 	<?php }
 
@@ -144,29 +143,30 @@ function en_reviews_cgb_block_assets() { // phpcs:ignore
 
 		?>
 
-		<div class="list-wrapper">
-			<?php
-			 $counter = 1;
-			 foreach ($reviews['reviews'] as $review) :
-
-				 if ($counter > 10)  {
-					 //do nothing
-				 } else {
-			?>
-<!-- put in conditional that checks for "starRating"=  "FIVE", -->
-						<div class="">
-
+		<div class="list-container">
+			<div class="list-wrapper">
+				<?php
+				 $counter = 1;
+				 foreach ($reviews['reviews'] as $review) :
+					 if ($counter > 10)  {
+						 //do nothing
+					 } else {
+				?>
+						<!-- put in conditional that checks for "starRating"=  "FIVE", -->
+						<div class="list-item">
+							<img
+								src="<?php echo plugin_dir_url( __FILE__ ) . './img/fivestars.svg'; ?>"
+								alt="5 Stars"
+								Class="en-five-stars"
+							/>
 							<?php $counter++;?>
-
-								<h3><?php echo $review['comment'];?></h3>
-								<p><?php echo $review['reviewer']['displayName']; ?></p>
-
+								<h3 class="slider-review-text"><?php echo $review['comment'];?></h3>
+								<p class="slider-review-auth">-<?php echo $review['reviewer']['displayName']; ?></p>
 						</div>
 					<?php }
-
 				endforeach; ?>
-
-		</div>
+			</div><!-- end list-wrapper -->
+		</div><!-- end list-container -->
 
 
 	<?php } ?>

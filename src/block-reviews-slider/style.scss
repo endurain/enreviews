@@ -1,20 +1,39 @@
 /**
- * #.# Styles
- *
- * CSS for both Frontend+Backend.
+ * CSS for Frontend+Backend of Swipe Reviews Block.
  */
 
+ // arrow offset
+$arrowdist:-10px;
+$arrowheight:84%;
 
-.wp-block-cgb-block-en-reviews  {
-  background: $red;
-  border: 0.2rem solid $black;
-  color: $black;
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 2rem;
+.review-container {
+  width: 600px;
+  height: 375px;
+  .review-wrapper {
+    .review-slide {
+      .slider-review-text {
+        text-align: center;
+        font-size: $fontlg;
+      }
+      .slider-review-auth {
+        text-align: center;
+        font-size: $fontsm;
+        font-style: italic;
+      }
+    }
+  }
 }
-
-.swiper-container {
-    width: 600px;
-    height: 375px;
+// swiper overrides
+// *swiper js configs in /src/frontend.js
+.swiper-button-next:focus,
+.swiper-button-prev:focus {
+  outline:none;
+}
+.swiper-button-prev {
+  left:$arrowdist;
+  top:$arrowheight;
+}
+.swiper-button-next {
+  right:$arrowdist;
+  top:$arrowheight
 }

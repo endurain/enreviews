@@ -1,6 +1,4 @@
 /**
- * #.# Common SCSS
- *
  * Can include things like variables and mixins
  * that are used across the project.
 */
@@ -11,3 +9,15 @@ $white: #f4f4f4;
 $gray: #dedede;
 $green: #bada55;
 $red: orangered;
+
+//gradients
+$bluevertical: linear-gradient(to bottom, #051d9b 0%,#0f2ecf 100%);
+
+//font sizes
+$fontsm: 15px;
+$fontlg: 20px;
+
+// center stars for all review blocks
+.en-five-stars {
+  margin: 0 auto;
+}
