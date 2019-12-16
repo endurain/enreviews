@@ -119,7 +119,14 @@ function en_reviews_cgb_block_assets() { // phpcs:ignore
 									Class="en-five-stars"
 								/>
 								<?php	$counter++;	?>
-			            <h3 class="slider-review-text"><?php echo $review['comment']; ?></h3>
+									<div id="truncate" data-excerpt>
+										<div data-excerpt-content>
+											<h3 class="slider-review-text">
+												<?php echo $review['comment']; ?>
+											</h3>
+										</div>
+									</div>
+
 			            <p class="slider-review-auth">
 										-<?php echo $review['reviewer']['displayName']; ?>, Google Review
 									</p>
