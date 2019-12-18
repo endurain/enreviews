@@ -1,15 +1,11 @@
 <?php
 
+
 function api_request() {
 
-  // get vars from ACF
-
-// if( get_field('wit_ga_reviews_clientid','option') ):
-// $clientid = get_field('wit_ga_reviews_clientid','option')
-// endif;
-
+  // Initialize new session
   $curl = curl_init();
-
+  // Options for cURL transfer
   curl_setopt_array($curl, array(
     CURLOPT_URL => "https://mybusiness.googleapis.com/v4/accounts/103480418076650782716/locations/3113233004733532043/reviews",
     CURLOPT_RETURNTRANSFER => true,
@@ -26,7 +22,7 @@ function api_request() {
       "Connection: keep-alive",
       "Host: mybusiness.googleapis.com",
       "Postman-Token: c2627a28-0b5b-4f5c-9f19-e6801963c887,cf349a20-9a1e-40b5-a5ed-ea03f62d1c50",
-      "User-Agent: PostmanRuntime/7.20.1",
+      "User-Agent: WitGoogleReviews/1.0",
       "cache-control: no-cache"
     ),
   ));
@@ -41,6 +37,4 @@ function api_request() {
   } else {
     return $response;
   }
-  // echo $response;
 }
-// api_request();

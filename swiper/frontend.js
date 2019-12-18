@@ -29,15 +29,15 @@ var mySwiper = new Swiper ('.swiper-container', {
       createExcerpt: function createExcerpt (excerpt) {
         var excerptElement = excerpt.querySelector('[data-excerpt-content]');
 
-        if (excerptElement.innerText.length > 200) {
+        if (excerptElement.innerText.length > 250) {
           var contentText = excerptElement.innerHTML;
-          var excerptText = excerptElement.innerText.substr(0, 200);
+          var excerptText = excerptElement.innerText.substr(0, 250);
 
           if (excerptText.charAt(excerptText.length - 1) === '.') {
             excerptText = excerptText.substr(0, excerptText.length - 1);
           }
 
-          excerptText += '... <a href="#" data-content-show>Read More</a>';
+          excerptText += '...';
           contentText += '<a href="#" data-content-hide>Read Less</a>';
 
           var contentContainer = document.createElement('h3');
@@ -56,11 +56,11 @@ var mySwiper = new Swiper ('.swiper-container', {
           var hide = excerpt.querySelector('[data-content-hide]');
 
           excerpt.setAttribute('data-excerpt', 'hide');
-
-          show.addEventListener('click', function(event) {
-            event.preventDefault();
-            excerpt.setAttribute('data-excerpt', 'show');
-          });
+          // we're not using a 'click to read more'
+          // show.addEventListener('click', function(event) {
+          //   event.preventDefault();
+          //   excerpt.setAttribute('data-excerpt', 'show');
+          // });
 
           hide.addEventListener('click', function(event) {
             event.preventDefault();
@@ -86,5 +86,4 @@ var mySwiper = new Swiper ('.swiper-container', {
     }
   }
 
-  Excerpt.init('#truncate');
-  Excerpt.init('#another-truncate');
+  Excerpt.init('.truncate');

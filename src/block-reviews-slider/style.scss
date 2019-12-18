@@ -23,8 +23,8 @@ $arrowheight:84%;
     }
   }
 }
+
 // swiper overrides
-// *swiper js configs in /src/frontend.js
 .swiper-button-next:focus,
 .swiper-button-prev:focus {
   outline:none;
@@ -36,4 +36,20 @@ $arrowheight:84%;
 .swiper-button-next {
   right:$arrowdist;
   top:$arrowheight
+}
+
+// styles pertaining to the truncate script in /swiper/frontend.js
+.excerpt {
+  font-size:20px;
+}
+[data-excerpt][data-excerpt=hide] .content,
+[data-excerpt][data-excerpt=hide] [data-content-hide],
+[data-excerpt][data-excerpt=show] .excerpt,
+[data-excerpt][data-excerpt=show] [data-content-show]{
+  display: none
+}
+
+[data-excerpt][data-excerpt=show] .content,
+[data-excerpt][data-excerpt=show] [data-content-hide] {
+  display: block
 }

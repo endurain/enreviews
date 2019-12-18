@@ -32,9 +32,9 @@ function myplugin_schedule_cron() {
 ////////////////////////////////////////////////////////////////////////////
 
 // create custom CRON hook for firing function
-add_action('myplugin_cron', 'myplugin_cron_function');
-
-
+// add_action('myplugin_cron', 'myplugin_cron_function');
+//
+//
 // function myplugin_cron_function() {
 //
 //  $data = api_request();
@@ -44,8 +44,8 @@ add_action('myplugin_cron', 'myplugin_cron_function');
 //  file_put_contents($file, $data); // write json to plugin root
 //
 //  }
-
- // myplugin_cron_function();
+//
+//  myplugin_cron_function();
 
 ////////////////////////////////////////////////////////////////////////////
 // Custom time interval for cron

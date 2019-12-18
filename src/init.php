@@ -118,8 +118,8 @@ function en_reviews_cgb_block_assets() { // phpcs:ignore
 									alt="5 Stars"
 									Class="en-five-stars"
 								/>
-								<?php	$counter++;	?>
-									<div id="truncate" data-excerpt>
+								<?php	$counter++; ?>
+									<div class="truncate" data-excerpt>
 										<div data-excerpt-content>
 											<h3 class="slider-review-text">
 												<?php echo $review['comment']; ?>
@@ -167,8 +167,12 @@ function en_reviews_cgb_block_assets() { // phpcs:ignore
 								Class="en-five-stars"
 							/>
 							<?php $counter++;?>
-								<h3 class="slider-review-text"><?php echo $review['comment'];?></h3>
-								<p class="slider-review-auth">-<?php echo $review['reviewer']['displayName']; ?></p>
+							<div class="truncate" data-excerpt>
+								<div data-excerpt-content>
+									<h3 class="slider-review-text"><?php echo $review['comment'];?></h3>
+								</div>
+							</div>
+							<p class="slider-review-auth">-<?php echo $review['reviewer']['displayName']; ?></p>
 						</div>
 					<?php }
 				endforeach; ?>
