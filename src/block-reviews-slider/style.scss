@@ -3,28 +3,43 @@
  */
 
  // arrow offset
-$arrowdist:-10px;
-$arrowheight:84%;
+$arrowdist:25%;
+$arrowheight:65%;
 
-.review-container {
-  width: 600px;
-  height: 375px;
-  .review-wrapper {
-    .review-slide {
-      .slider-review-text {
-        text-align: center;
-        font-size: $fontlg;
+.reviews-background {
+  background-image: linear-gradient(17deg, rgba(68, 153, 255, 1) 0%, rgba(16, 48, 145, 1) 100%);
+  max-width:100%!important;
+  .review-container {
+    width: 600px;
+    height: 375px;
+    .review-wrapper {
+      .review-slide {
+        .slider-review-text {
+          text-align: center;
+          font-size: $fontlg;
+          color:$white!important;
+          margin-bottom:16px;
+        }
+        .slider-review-auth {
+          text-align: center;
+          font-size: $fontsm;
+          font-style: italic;
+          color:$white!important;
+        }
       }
-      .slider-review-auth {
-        text-align: center;
-        font-size: $fontsm;
-        font-style: italic;
-      }
+    }
+  }
+  .slide-text-bottom {
+    text-align: center;
+    .slide-link {
+      color:#fff;
+      font-weight: 500;
     }
   }
 }
 
-// swiper overrides
+
+// swiper overrides and styling
 .swiper-button-next:focus,
 .swiper-button-prev:focus {
   outline:none;
@@ -32,15 +47,41 @@ $arrowheight:84%;
 .swiper-button-prev {
   left:$arrowdist;
   top:$arrowheight;
+  color:$white!important;
 }
 .swiper-button-next {
   right:$arrowdist;
-  top:$arrowheight
+  top:$arrowheight;
+  color:$white!important;
 }
-
+.swiper-pagination-bullet {
+  width:13px!important;
+  height: 13px!important;
+  background:$white!important;
+  opacity:1!important;
+  margin: 0 8px!important;
+}
+.swiper-pagination-bullet-active {
+  background:$orange!important;
+}
+@media only screen and (max-width:480px) {
+  .desktoponly {
+    display: none!important;
+  }
+  .review-container {
+    width:300px!important;
+  }
+}
+@media only screen and (min-width:1024px) {
+  .mobileonly {
+    display: none!important;
+  }
+}
 // styles pertaining to the truncate script in /swiper/frontend.js
 .excerpt {
   font-size:20px;
+  text-align: center;
+  color:$white!important;
 }
 [data-excerpt][data-excerpt=hide] .content,
 [data-excerpt][data-excerpt=hide] [data-content-hide],

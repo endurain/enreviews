@@ -40,11 +40,11 @@ var mySwiper = new Swiper ('.swiper-container', {
           excerptText += '...';
           contentText += '<a href="#" data-content-hide>Read Less</a>';
 
-          var contentContainer = document.createElement('h3');
+          var contentContainer = document.createElement('p');
           contentContainer.classList.add('content');
           contentContainer.innerHTML = contentText;
 
-          var excerptContainer = document.createElement('h3');
+          var excerptContainer = document.createElement('p');
           excerptContainer.classList.add('excerpt');
           excerptContainer.innerHTML = excerptText;
 

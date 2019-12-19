@@ -99,3 +99,9 @@ function my_acf_op_init() {
         ));
     }
 }
+
+function en_reviews_enqueue_script() {
+		wp_enqueue_script( 'en_reviews_swiper_script', plugin_dir_url( __FILE__ ) . 'swiper/js/swiper.min.js' );
+		wp_enqueue_style( 'en_reviews_swiper_script_styles', plugin_dir_url( __FILE__ ) . '/swiper/css/swiper.min.css' );
+	}
+	add_action('wp_enqueue_scripts', 'en_reviews_enqueue_script');

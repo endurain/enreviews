@@ -11,3 +11,4 @@
 
 import './block-reviews-slider/block.js';
 import './block-reviews-list/block.js';
+import './block-reviews-sidebar/block.js';

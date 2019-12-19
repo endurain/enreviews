@@ -1,2 +1,119 @@
-.en-five-stars{margin:0 auto}.review-container{width:600px;height:375px}.review-container .review-wrapper .review-slide .slider-review-text{text-align:center;font-size:20px}.review-container .review-wrapper .review-slide .slider-review-auth{text-align:center;font-size:15px;font-style:italic}.swiper-button-next:focus,.swiper-button-prev:focus{outline:none}.swiper-button-prev{left:-10px;top:84%}.swiper-button-next{right:-10px;top:84%}.excerpt{font-size:20px}[data-excerpt][data-excerpt=hide] .content,[data-excerpt][data-excerpt=hide] [data-content-hide],[data-excerpt][data-excerpt=show] .excerpt,[data-excerpt][data-excerpt=show] [data-content-show]{display:none}[data-excerpt][data-excerpt=show] .content,[data-excerpt][data-excerpt=show] [data-content-hide]{display:block}
-.en-five-stars{margin:0 auto}.list-container .list-wrapper .list-item .slider-review-text,.list-container .list-wrapper .list-item .slider-review-auth{text-align:center}
+/**
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.en-five-stars {
+  margin: 0 auto;
+  display: block;
+  padding: 25px 5px; }
+
+.wp-admin .reviews-background, .wp-admin .list-container {
+  display: none; }
+
+/**
+ * CSS for Frontend+Backend of Swipe Reviews Block.
+ */
+.reviews-background {
+  background-image: -webkit-linear-gradient(73deg, #4499ff 0%, #103091 100%);
+  background-image: -o-linear-gradient(73deg, #4499ff 0%, #103091 100%);
+  background-image: linear-gradient(17deg, #4499ff 0%, #103091 100%);
+  max-width: 100% !important; }
+  .reviews-background .review-container {
+    width: 600px;
+    height: 375px; }
+    .reviews-background .review-container .review-wrapper .review-slide .slider-review-text {
+      text-align: center;
+      font-size: 20px;
+      color: #fff !important;
+      margin-bottom: 16px; }
+    .reviews-background .review-container .review-wrapper .review-slide .slider-review-auth {
+      text-align: center;
+      font-size: 15px;
+      font-style: italic;
+      color: #fff !important; }
+  .reviews-background .slide-text-bottom {
+    text-align: center; }
+    .reviews-background .slide-text-bottom .slide-link {
+      color: #fff;
+      font-weight: 500; }
+
+.swiper-button-next:focus,
+.swiper-button-prev:focus {
+  outline: none; }
+
+.swiper-button-prev {
+  left: 25%;
+  top: 65%;
+  color: #fff !important; }
+
+.swiper-button-next {
+  right: 25%;
+  top: 65%;
+  color: #fff !important; }
+
+.swiper-pagination-bullet {
+  width: 13px !important;
+  height: 13px !important;
+  background: #fff !important;
+  opacity: 1 !important;
+  margin: 0 8px !important; }
+
+.swiper-pagination-bullet-active {
+  background: #ff9000 !important; }
+
+@media only screen and (max-width: 480px) {
+  .desktoponly {
+    display: none !important; }
+  .review-container {
+    width: 300px !important; } }
+
+@media only screen and (min-width: 1024px) {
+  .mobileonly {
+    display: none !important; } }
+
+.excerpt {
+  font-size: 20px;
+  text-align: center;
+  color: #fff !important; }
+
+[data-excerpt][data-excerpt=hide] .content,
+[data-excerpt][data-excerpt=hide] [data-content-hide],
+[data-excerpt][data-excerpt=show] .excerpt,
+[data-excerpt][data-excerpt=show] [data-content-show] {
+  display: none; }
+
+[data-excerpt][data-excerpt=show] .content,
+[data-excerpt][data-excerpt=show] [data-content-hide] {
+  display: block; }
+/**
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.en-five-stars {
+  margin: 0 auto;
+  display: block;
+  padding: 25px 5px; }
+
+.wp-admin .reviews-background, .wp-admin .list-container {
+  display: none; }
+
+/**
+ * CSS for Frontend+Backend of List Reviews Block.
+ */
+.list-container .list-wrapper .list-item .slider-review-text, .list-container .list-wrapper .list-item .slider-review-auth {
+  text-align: center; }
+/**
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.en-five-stars {
+  margin: 0 auto;
+  display: block;
+  padding: 25px 5px; }
+
+.wp-admin .reviews-background, .wp-admin .list-container {
+  display: none; }
+
+/**
+ * CSS for Frontend+Backend of Swipe Reviews Block.
+ */

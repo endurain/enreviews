@@ -5,10 +5,11 @@
 
 // Colors.
 $black: rgb(41, 41, 41);
-$white: #f4f4f4;
+$white: #fff;
 $gray: #dedede;
 $green: #bada55;
 $red: orangered;
+$orange: rgba(255, 144, 0, 1);
 
 //gradients
 $bluevertical: linear-gradient(to bottom, #051d9b 0%,#0f2ecf 100%);
@@ -20,4 +21,11 @@ $fontlg: 20px;
 // center stars for all review blocks
 .en-five-stars {
   margin: 0 auto;
+  display: block;
+  padding:25px 5px;
+}
+
+// a terrible temp fix for wp editor
+.wp-admin .reviews-background, .wp-admin .list-container {
+  display:none;
 }

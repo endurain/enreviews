@@ -1,6 +1,5 @@
 <?php
 
-
 function api_request() {
 
   // Initialize new session

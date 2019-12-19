@@ -8,13 +8,13 @@ const { __ } = wp.i18n; // Import __() from wp.i18n
 const { registerBlockType } = wp.blocks; // Import registerBlockType() from wp.blocks
 const { RichText } = wp.editor;
 
-registerBlockType( 'cgb/block-en-reviews', {
+registerBlockType( 'cgb/block-sidebar-reviews', {
 	// Block name. Block names must be string that contains a namespace prefix. Example: my-plugin/my-custom-block.
-	title: __( 'en-reviews' ), // Block title.
-	icon: 'shield', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
+	title: __( 'en-reviews-sidebar' ), // Block title.
+	icon: 'editor-contract', // Block icon from Dashicons → https://developer.wordpress.org/resource/dashicons/.
 	category: 'common', // Block category — Group blocks together based on common traits E.g. common, formatting, layout widgets, embed.
 	keywords: [
-		__( 'en-reviews' ),
+		__( 'en-sidebar' ),
 		__( 'wit-reviews' ),
 		__( 'reviews' ),
 	],
@@ -29,16 +29,16 @@ registerBlockType( 'cgb/block-en-reviews', {
   attributes: {
     title: {
       type: 'string',
-      // selector: 'js-review-title',
+      selector: 'js-review-title',
     },
     review: {
       type: 'string',
-      // selector: 'js-review-content',
+      selector: 'js-review-content',
       multiline: 'p',
     },
     author: {
       type: 'string',
-      // selector: 'js-review-author',
+      selector: 'js-review-author',
     },
   },
 
