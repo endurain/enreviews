@@ -1,3 +1,5 @@
+This WordPress plugin uses the GMB API to pull in reviews. 
+
 This project was bootstrapped with [Create Guten Block](https://github.com/ahmadawais/create-guten-block).
 
 Below you will find some information on how to run scripts.
