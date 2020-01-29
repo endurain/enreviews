@@ -31,21 +31,21 @@ function myplugin_schedule_cron() {
 // Cron Function
 ////////////////////////////////////////////////////////////////////////////
 
-// create custom CRON hook for firing function
-// add_action('myplugin_cron', 'myplugin_cron_function');
-//
-//
-// function myplugin_cron_function() {
-//
-//  $data = api_request();
-//  // $data = file_get_contents($url); // put the contents of the file into a variable
-//  $file = __DIR__ . '/latest.json'; //tell server where to write file to and what to call it
-//
-//  file_put_contents($file, $data); // write json to plugin root
-//
-//  }
-//
-//  myplugin_cron_function();
+create custom CRON hook for firing function
+add_action('myplugin_cron', 'myplugin_cron_function');
+
+
+function myplugin_cron_function() {
+
+ $data = api_request();
+ // $data = file_get_contents($url); // put the contents of the file into a variable
+ $file = __DIR__ . '/latest.json'; //tell server where to write file to and what to call it
+
+ file_put_contents($file, $data); // write json to plugin root
+
+ }
+
+ myplugin_cron_function();
 
 ////////////////////////////////////////////////////////////////////////////
 // Custom time interval for cron
