@@ -1,10 +1,9 @@
 This WordPress plugin uses the GMB API to pull in reviews. 
 
-This project was bootstrapped with [Create Guten Block](https://github.com/ahmadawais/create-guten-block).
+
 
 Below you will find some information on how to run scripts.
 
->You can find the most recent version of this guide [here](https://github.com/ahmadawais/create-guten-block).
 
 ## 👉  `npm start`
 - Use to compile and run the block in development mode.
@@ -39,11 +38,10 @@ https://developers.google.com/my-business/content/prereqs#get-account
 Part I: Getting Access to the GMB API
 
 Create a Google Account 
-Choose a name that makes its purpose clear. Ex. “Chadlove Development”
-Add credentials to Last Pass and place in client’s shared folder
+Choose a name that makes its purpose clear. 
 Create a Project in the Google API Console
 Click ‘Create Project’
-For ‘Project Name’ enter ‘Wit Google Reviews’
+For ‘Project Name’ enter ‘ [Your Proj Name] Google Reviews’
 Leave ‘Location’ as it is for now. It may say ‘No organization’ which is fine.
 Blindly agree to any terms or services pop-ups 
 Submit application to request access to the API
@@ -57,8 +55,8 @@ On page 1, click ‘Next’
 Page 2: Enter the Project ID and Project Number from Step 3d
 For email address, enter the email address of the account you setup in Step 1
 Page 3: Enter all information as follows:
-Company Name: [Client Business Name] ex. Chad Love Services
-Company Website: [Client Site] ex. Chadloveservices.com
+Company Name: [Client Business Name] 
+Company Website: [Client Site] 
 Company HQ Address: [Client Address] look in truth docs or Google Maps
 Company HQ Maps URL: Use previous step info
 Company email address: Use a current Google account affiliated with the client’s website domain (may need revising ZS)
