@@ -37,55 +37,54 @@ https://developers.google.com/my-business/content/prereqs#get-account
 
 Part I: Getting Access to the GMB API
 
-- Create a Google Account 
-- Choose a name that makes its purpose clear. 
-Create a Project in the Google API Console
-Click ‘Create Project’
-For ‘Project Name’ enter ‘ [Your Proj Name] Google Reviews’
-Leave ‘Location’ as it is for now. It may say ‘No organization’ which is fine.
-Blindly agree to any terms or services pop-ups 
-Submit application to request access to the API
-Back in the Google API Console
-Click on three dots on the right side of your project, and select ‘Settings’
-
-Note that here you will find the following info about your project:
+- Create a Google Account affiliated with the email domain of the client GMB account
+- Choose a name that makes its purpose clear (ex. development@clientdomain.com) 
+- Create a Project in the Google API Console
+- Click ‘Create Project’
+- For ‘Project Name’ enter ‘ [Your Proj Name] Google Reviews’
+- Leave ‘Location’ as it is for now. It may say ‘No organization’ which is fine.
+- Blindly agree to any terms or services pop-ups 
+- Submit application to request access to the API
+- Back in the Google API Console
+- Click on three dots on the right side of your project, and select ‘Settings’
 
 Complete this form to request access to the GMB API
-On page 1, click ‘Next’
-Page 2: Enter the Project ID and Project Number from Step 3d
-For email address, enter the email address of the account you setup in Step 1
+- On page 1, click ‘Next’
+- Page 2: Enter the Project ID and Project Number from Step 3d
+- For email address, enter the email address of the account you setup in Step 1
 Page 3: Enter all information as follows:
-Company Name: [Client Business Name] 
-Company Website: [Client Site] 
-Company HQ Address: [Client Address] look in truth docs or Google Maps
-Company HQ Maps URL: Use previous step info
-Company email address: Use a current Google account affiliated with the client’s website domain (may need revising ZS)
-Your Name: Enter name of client associated with previous step
-Partner Manager / Account Manager *: enter ‘N/A’
+- Company Name: [Client Business Name] 
+- Company Website: [Client Site]
+- Company HQ Address: [Client Address] look in Google Maps
+- Company HQ Maps URL: Use previous step info
+- Company email address: Use a current Google account affiliated with the client’s website domain
+- Your Name: Enter name of client associated with previous step
+- Partner Manager / Account Manager *: enter ‘N/A’
 Page 4: Enter the following 
-How would you best categorize your company *: Select ‘Local Business’
+- How would you best categorize your company *: Select ‘Local Business’
 Page 5: Enter the following 
 How would you describe your business? *: 
-‘Small or Medium Business’
+- ‘Small or Medium Business’
 Do you currently manage locations in Google My Business? *
-[LOOK INTO THIS answer, NO for now]
+- no
 Briefly describe how you plan to use the GMB API *
-‘Web App to pull reviews’
+- ‘Web App to pull reviews’
 Page 8 (application may jump from pg 5 => 8): Enter the following:
 What type of location management application do you have? *
-‘Both’
+- ‘Both’
 What features of the Google My Business API do you plan to use? 
-‘Both’
+- ‘Both’
 What programming language do you plan on using to develop your application? *
-‘PHP & Javascript’
+- ‘PHP & Javascript’
 Which other networks does your platform publish location information to? *
-‘N/A’
+- ‘N/A’
 How is your location management application used? *
-‘The application is only used internally by employees within my company to manage locations’
+- ‘The application is only used internally by employees within company to manage locations
 Please confirm that you have read and agree to the GMB API policies. *
-You clearly have to select ‘Yes’
+- You clearly have to select ‘Yes’
 
-Await the approval from Google, which will be sent to the email address in Step 3.e.iv.5. This can take up to two weeks. 	
+Await the approval from Google, which will be sent to the email address in Step 3.e.iv.5. This can take up to two weeks.
+
 Part II: Request Access to Client’s GMB
 
 Part III: Troubleshooting
