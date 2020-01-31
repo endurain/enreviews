@@ -37,8 +37,8 @@ https://developers.google.com/my-business/content/prereqs#get-account
 
 Part I: Getting Access to the GMB API
 
-Create a Google Account 
-Choose a name that makes its purpose clear. 
+- Create a Google Account 
+- Choose a name that makes its purpose clear. 
 Create a Project in the Google API Console
 Click ‘Create Project’
 For ‘Project Name’ enter ‘ [Your Proj Name] Google Reviews’
