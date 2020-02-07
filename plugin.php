@@ -31,7 +31,7 @@ function myplugin_schedule_cron() {
 // Cron Function
 ////////////////////////////////////////////////////////////////////////////
 
-create custom CRON hook for firing function
+// create custom CRON hook for firing function
 add_action('myplugin_cron', 'myplugin_cron_function');
 
 
