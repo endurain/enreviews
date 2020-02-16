@@ -90,4 +90,4 @@ Part II: Request Access to Client’s GMB
 Part III: Troubleshooting
 
 404 not found error when going through the OAuthplayground. 
-Contact google support, googlemybusiness-support@google.com and provide them the Whitelisted Project ID & Whitelisted Project Number. The 404 Method not found error typically happens when you are using a different Project ID from the one we whitelisted for your company to access the Google My Business API. 
+Contact google API support, googlemybusiness-api-support and provide them the Whitelisted Project ID & Whitelisted Project Number. The 404 Method not found error typically happens when you are using a different Project ID from the one we whitelisted for your company to access the Google My Business API. 
